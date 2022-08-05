@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import JSONDATA from "./MOCK_DATA.json";
+import "./App.css";
 
 function App() {
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
   return (
     <div className="App">
       <input
@@ -15,8 +17,16 @@ function App() {
         onChange={handleChange}
       />
       <ul>
-        {JSONDATA.map((val, key) => {
-          return <div>{val.first_name}</div>;
+        {JSONDATA.filter((user) =>
+          user.first_name.toLowerCase().includes(searchTerm.toLowerCase())
+        ).map((user, key) => {
+          return (
+            <div key={user.id}>
+              <ul>
+                <p>{user.first_name}</p>
+              </ul>
+            </div>
+          );
         })}
       </ul>
     </div>
