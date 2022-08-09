@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+Simple search filter, using react hooks, local database api and controlled HTML input field in React. # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
